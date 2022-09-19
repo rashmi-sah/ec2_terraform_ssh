@@ -36,7 +36,7 @@ jobs:
           
             #Now we have got the access of EC2 and we will start the deploy .
             touch myfile.txt
-            echo "This is first line" >> myfile.txt            
+            echo "This is second line added" >> myfile.txt            
           '
         
           
