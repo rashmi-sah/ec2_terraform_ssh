@@ -6,5 +6,5 @@ resource "local_file" "ip" {
 
 #### this variable is being used in workflow to get public ip address of the server
 output "ip_address" {
-   value = "3.86.57.252"
+   value = "35.175.201.131"
 }
