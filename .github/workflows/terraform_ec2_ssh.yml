@@ -46,8 +46,9 @@ jobs:
         pwd
         echo "Listing files in current directory:"
         ls -ltr
-        echo "copying ip to variable"
+        echo "content of ip.txt"
         cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt"
         echo "/n/n/n"
-        cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt" > HOSTNAME
-        echo "$HOSTNAME"
+        echo " capturing terraform output variable:"
+        hostip_address="$(terraform output -raw ip_address)"
+        echo $hostip_address
