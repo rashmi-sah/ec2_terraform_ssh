@@ -25,5 +25,6 @@ jobs:
           cat file1.txt
           pwd
           ls -ltr
+          whoami
           
           
