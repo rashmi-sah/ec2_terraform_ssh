@@ -23,5 +23,7 @@ jobs:
           cat aws_access_key.txt
           echo "Hello from Github Actions" > file1.txt
           cat file1.txt
+          pwd
+          ls -ltr
           
           
