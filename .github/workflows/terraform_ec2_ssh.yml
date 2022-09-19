@@ -53,10 +53,11 @@ jobs:
         hostip_address="$(terraform output -raw ip_address)"
         echo $hostip_address
         
-    - name: login to ec2 instance
+    - name: setup ec2 instance
       run: |
           mkdir -p ~/.ssh/
           SSH_HOST=$hostip_address
+          echo "SSH_HOST : " $SSH_HOST
           echo "$SSH_KEY" > ~/.ssh/staging.key
           chmod 600 ~/.ssh/staging.key
           cat >>~/.ssh/config <<END
