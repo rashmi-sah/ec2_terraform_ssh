@@ -18,8 +18,8 @@ jobs:
             
         run: |
           mkdir -p ~/.ssh/
-          echo "$PRIVATE_KEY" > ../private.key
-          sudo chmod 600 ../private.key
-          cat ../private.key
+          echo "$PRIVATE_KEY" > private.key
+          sudo chmod 600 private.key
+          cat private.key
           
           
