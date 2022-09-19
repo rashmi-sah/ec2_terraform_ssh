@@ -40,7 +40,7 @@ jobs:
         PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
       run: terraform apply -auto-approve -input=false
         
-    - name: setup ec2 instance
+    - name: setup keys in ec2 instance
       run: |
           mkdir -p ~/.ssh/
           #### assigning terraform output value to a unix variable
@@ -58,7 +58,7 @@ jobs:
       env:
           SSH_USER: ${{ secrets.USER_NAME }}
           SSH_KEY: ${{ secrets.PRIVATE_KEY }}
-    - name: login the server
+    - name: login ec2 server and install python,apache
       run: |
           ssh staging  '
             echo "\n\n\n\n #########Installing updates########### \n\n\n\n"
@@ -72,5 +72,5 @@ jobs:
             cd /var/www/html/
             sudo chmod 777 index.html
             sudo echo "Hello Apache from My GitHub world Repository" > index.html
-            sudo echo "Hello Rashmi !!!" > index.html
+            sudo echo "Hello Rashmi !!!" >> index.html
           '
