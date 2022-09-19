@@ -65,6 +65,6 @@ jobs:
             #Now we have got the access of EC2 and we will start the deploy .
             #touch myfile_terraform.txt
             #echo "This is third line added" >> myfile.txt  
-            sudo apt install python
-            python --version
+            sudo apt install python3
+            python3 --version
           '
