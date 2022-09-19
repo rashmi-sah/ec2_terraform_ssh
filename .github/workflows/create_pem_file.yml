@@ -12,21 +12,31 @@ jobs:
    
     steps:
       - uses: actions/checkout@v2 
-      - name: Check private key file content
-        env:
-            PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+      - name: login to ec2 instance
             
         run: |
-          echo "$PRIVATE_KEY" > private.txt
-          echo "$AWS_ACCESS_KEY_ID" > aws_access_key.txt
-          echo "Hello from Github Actions" > file1.txt
-          sh ./shell_script.sh
-      
-       
-      - name: running unix commands
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.USER_NAME }}
+          SSH_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.HOSTNAME }}
+          
+      - name: login the server
         run: |
-          echo " current directory : "
-          pwd
-        
+          ssh staging  '
+          
+            #Now we have got the access of EC2 and we will start the deploy .
+            touch myfile.txt
+            echo "This is first line" >> myfile.txt            
+          '
         
           
