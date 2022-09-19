@@ -39,3 +39,10 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
       run: terraform apply -auto-approve -input=false
+      
+    - name: Checking Files present on the server
+      run: |
+        echo "Current directory path:"
+        pwd
+        echo "Listing files in current directory:"
+        ls -ltr
