@@ -52,3 +52,28 @@ jobs:
         echo " capturing terraform output variable:"
         hostip_address="$(terraform output -raw ip_address)"
         echo $hostip_address
+        
+    - name: login to ec2 instance
+      run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
+      env:
+          SSH_USER: ${{ secrets.USER_NAME }}
+          SSH_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_HOST: $hostip_address
+    - name: login the server
+      run: |
+          ssh staging  '
+          
+            #Now we have got the access of EC2 and we will start the deploy .
+            touch myfile_terraform.txt
+            echo "This is third line added" >> myfile.txt  
+          '
