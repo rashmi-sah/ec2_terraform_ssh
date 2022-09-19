@@ -23,8 +23,11 @@ jobs:
           cat aws_access_key.txt
           echo "Hello from Github Actions" > file1.txt
           cat file1.txt
+          echo "Current Directory : "
           pwd
+          echo " Listing files:"
           ls -ltr
+          echo "Who is running this commands:"
           whoami
       - name: running unix commands
         run: |
