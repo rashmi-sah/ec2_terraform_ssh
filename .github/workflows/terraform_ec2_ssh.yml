@@ -47,5 +47,6 @@ jobs:
         echo "Listing files in current directory:"
         ls -ltr
         echo "copying ip to variable"
-        cat ip.txt > HOSTNAME
+        cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt"
+        cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt" > HOSTNAME
         echo "$HOSTNAME"
