@@ -18,17 +18,11 @@ jobs:
             
         run: |
           echo "$PRIVATE_KEY" > private.txt
-          cat private.txt
           echo "$AWS_ACCESS_KEY_ID" > aws_access_key.txt
-          cat aws_access_key.txt
           echo "Hello from Github Actions" > file1.txt
-          cat file1.txt
-          echo "Current Directory : "
-          pwd
-          echo " Listing files:"
-          ls -ltr
-          echo "Who is running this commands:"
-          whoami
+          sh ./shell_script.sh
+      
+       
       - name: running unix commands
         run: |
           echo " current directory : "
