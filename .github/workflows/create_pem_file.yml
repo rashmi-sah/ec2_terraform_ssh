@@ -29,6 +29,10 @@ jobs:
           SSH_USER: ${{ secrets.USER_NAME }}
           SSH_KEY: ${{ secrets.PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.HOSTNAME }}
+      - name: login to ec2 instance
+        run: |
+           echo " List all the files created:"
+           ls -ltr
           
       - name: login the server
         run: |
