@@ -21,5 +21,7 @@ jobs:
           cat private.txt
           echo "$AWS_ACCESS_KEY_ID" > aws_access_key.txt
           cat aws_access_key.txt
+          echo "Hello from Github Actions" > file1.txt
+          cat file1.txt
           
           
