@@ -48,5 +48,6 @@ jobs:
         ls -ltr
         echo "copying ip to variable"
         cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt"
+        echo "/n/n/n"
         cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt" > HOSTNAME
         echo "$HOSTNAME"
