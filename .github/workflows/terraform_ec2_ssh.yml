@@ -46,3 +46,6 @@ jobs:
         pwd
         echo "Listing files in current directory:"
         ls -ltr
+        echo "copying ip to variable"
+        cat ip.txt > HOSTNAME
+        echo "$HOSTNAME"
