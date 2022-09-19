@@ -43,7 +43,7 @@ jobs:
     - name: setup ec2 instance
       run: |
           mkdir -p ~/.ssh/
-          #### capturing terraform output value and assigning it to a unix variable
+          #### assigning terraform output value to a unix variable
           SSH_HOST="$(terraform output -raw ip_address)"
           echo "SSH_HOST : " $SSH_HOST
           echo "$SSH_KEY" > ~/.ssh/staging.key
