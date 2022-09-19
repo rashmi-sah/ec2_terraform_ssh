@@ -39,23 +39,11 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
       run: terraform apply -auto-approve -input=false
-      
-    - name: Checking Files present on the server
-      run: |
-        echo "Current directory path:"
-        pwd
-        echo "Listing files in current directory:"
-        ls -ltr
-        echo "content of ip.txt"
-        cat "/home/runner/work/ec2_terraform_ssh/ec2_terraform_ssh/ip.txt"
-        echo "/n/n/n"
-        echo " capturing terraform output variable:"
-        hostip_address="$(terraform output -raw ip_address)"
-        echo $hostip_address
         
     - name: setup ec2 instance
       run: |
           mkdir -p ~/.ssh/
+          #### capturing terraform output value and assigning it to a unix variable
           SSH_HOST="$(terraform output -raw ip_address)"
           echo "SSH_HOST : " $SSH_HOST
           echo "$SSH_KEY" > ~/.ssh/staging.key
@@ -75,6 +63,8 @@ jobs:
           ssh staging  '
           
             #Now we have got the access of EC2 and we will start the deploy .
-            touch myfile_terraform.txt
-            echo "This is third line added" >> myfile.txt  
+            #touch myfile_terraform.txt
+            #echo "This is third line added" >> myfile.txt  
+            sudo apt install python
+            python --version
           '
