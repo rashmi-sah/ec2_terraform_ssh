@@ -19,6 +19,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private.txt
           cat private.txt
-          echo "$AWS_ACCESS_KEY_ID"
+          echo "$AWS_ACCESS_KEY_ID" > aws_access_key.txt
+          cat aws_access_key.txt
           
           
