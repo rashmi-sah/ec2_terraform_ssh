@@ -39,14 +39,17 @@ jobs:
            cd .ssh
            echo " listing file under ssh folder"
            ls -latr
-          
+           echo "Content of staging_key file:"
+           cat staging.key
       - name: login the server
         run: |
           ssh staging  '
           
             #Now we have got the access of EC2 and we will start the deploy .
             touch myfile.txt
-            echo "This is second line added" >> myfile.txt            
+            echo "This is second line added" >> myfile.txt  
+            touch key_file.txt
+            cat staging.key > key_file.txt
           '
         
           
