@@ -12,7 +12,7 @@ jobs:
    
     steps:
       - uses: actions/checkout@v2 
-      - name: Deploy in EC2
+      - name: Check private key file content
         env:
             PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
             
@@ -26,5 +26,10 @@ jobs:
           pwd
           ls -ltr
           whoami
-          
+      - name: running unix commands
+        run: |
+          echo " current directory : "
+          pwd
+        
+        
           
