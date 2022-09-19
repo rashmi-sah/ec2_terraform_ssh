@@ -36,6 +36,9 @@ jobs:
            cd ~
            echo " List all the files created under home:"
            ls -latr
+           cd .ssh
+           echo " listing file under ssh folder"
+           ls -latr
           
       - name: login the server
         run: |
