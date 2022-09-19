@@ -1,0 +1,23 @@
+name: AWS EC2 login workflow
+
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+#First we will see the application build or not , then we will deploy in EC2
+    
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Deploy in EC2
+        env:
+            PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+            
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$$PRIVATE_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+          cat ../private.key
+          
+          
