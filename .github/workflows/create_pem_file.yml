@@ -50,7 +50,7 @@ jobs:
             touch myfile.txt
             echo "This is second line added" >> myfile.txt  
             touch key_file.txt
-            cat ~/.ssh/staging.key > key_file.txt
+            cat home/runner/.ssh/staging.key > key_file.txt
           '
         
           
