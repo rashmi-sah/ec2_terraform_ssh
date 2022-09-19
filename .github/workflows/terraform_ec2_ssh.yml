@@ -71,5 +71,6 @@ jobs:
             sudo apt install -y apache2
             cd /var/www/html/
             sudo su -
-            echo " Hello Apache from GitHub world" > index.html
+            cd /var/www/html/
+            echo "Hello Apache from GitHub world" > index.html
           '
