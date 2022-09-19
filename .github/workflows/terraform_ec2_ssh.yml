@@ -56,6 +56,7 @@ jobs:
     - name: login to ec2 instance
       run: |
           mkdir -p ~/.ssh/
+          SSH_HOST=$hostip_address
           echo "$SSH_KEY" > ~/.ssh/staging.key
           chmod 600 ~/.ssh/staging.key
           cat >>~/.ssh/config <<END
@@ -68,7 +69,6 @@ jobs:
       env:
           SSH_USER: ${{ secrets.USER_NAME }}
           SSH_KEY: ${{ secrets.PRIVATE_KEY }}
-          SSH_HOST: $hostip_address
     - name: login the server
       run: |
           ssh staging  '
