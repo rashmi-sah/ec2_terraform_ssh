@@ -61,10 +61,13 @@ jobs:
     - name: login the server
       run: |
           ssh staging  '
-          
-            #Now we have got the access of EC2 and we will start the deploy .
-            #touch myfile_terraform.txt
-            #echo "This is third line added" >> myfile.txt  
+            echo "\n\n\n\n #########Installing updates########### \n\n\n\n"
+            sudo apt update
+            echo "\n\n\n\n #########Installing python########### \n\n\n\n"
             sudo apt install python3
             python3 --version
+            echo "\n\n\n\n #########Installing apache########### \n\n\n\n"
+            sudo apt install apache2
+            cd /var/www/html/
+            echo " Hello Apache from GitHub world" > index.html
           '
