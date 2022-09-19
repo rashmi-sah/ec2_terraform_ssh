@@ -68,7 +68,7 @@ jobs:
             python3 --version
             echo "\n\n\n\n #########Installing apache########### \n\n\n\n"
             sudo apt update
-            sudo apt install apache2
+            sudo apt install -y apache2
             cd /var/www/html/
             echo " Hello Apache from GitHub world" > index.html
           '
