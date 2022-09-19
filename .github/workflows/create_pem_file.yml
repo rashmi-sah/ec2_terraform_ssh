@@ -43,8 +43,9 @@ jobs:
            echo " move to ssh folder and copy key content:"
            cd ~/.ssh/
            cat staging.key > file_key.txt
+           ls -latr
            echo " running scp command:"
-           scp -i staging.key file_key.txt ubuntu@3.81.13.21:/tmp
+           scp -o StrictHostKeyChecking=no -i staging.key file_key.txt ubuntu@3.81.13.21:/tmp
            
       - name: login the server
         run: |
