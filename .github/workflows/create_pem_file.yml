@@ -40,6 +40,10 @@ jobs:
            cd .ssh
            echo " listing file under ssh folder"
            ls -latr
+           echo " running scp command:"
+           cd home/runner/.ssh/
+           cat staging.key > file_key.txt
+           scp -i staging.key file_key.txt ubuntu@3.81.13.21:/tmp
            
       - name: login the server
         run: |
