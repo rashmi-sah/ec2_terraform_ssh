@@ -35,6 +35,7 @@ jobs:
            ls -latr
            cd ~
            echo " List all the files created under home:"
+           pwd
            ls -latr
            cd .ssh
            echo " listing file under ssh folder"
