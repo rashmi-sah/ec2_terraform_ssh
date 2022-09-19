@@ -33,6 +33,9 @@ jobs:
         run: |
            echo " List all the files created:"
            ls -latr
+           cd ~
+           echo " List all the files created under home:"
+           ls -latr
           
       - name: login the server
         run: |
